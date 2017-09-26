@@ -1,7 +1,3 @@
-<?php
-include('index.php');
-$color = $_POST['color'];
-?>
 <!DOCTYPE html>
 <html>
 <head>

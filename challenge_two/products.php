@@ -1,3 +1,14 @@
+<?php
+include('connection.php');
+$userData = $_POST[colors];
+
+$tables = $db->prepare("SELECT * FROM products WHERE color = '{$userData}'");
+
+$tables->execute();
+
+$products = $tables->fetchAll(PDO::FETCH_ASSOC)
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,54 +23,16 @@
       <th>Price</th>
       <th>Color</th>
     </tr>
+      <?php foreach($products as $product): ?>
     <tr>
-      <td>Pepsi</td>
-      <td>12 oz canned drink</td>
-      <td>$0.79</td>
-      <td>Blue</td>
+      <td><?php echo $product[name];?></td>
+      <td><?php echo $product[description];?></td>
+      <td><?php echo $product[price];?></td>
+      <td><?php echo $product[color];?></td>
     </tr>
-    <tr>
-      <td>Welch's Grape</td>
-      <td>Grape flavored 24oz bottle</td>
-      <td>$1.39</td>
-      <td>Purple</td>
-    </tr>
-    <tr>
-      <td>Fanta</td>
-      <td>Orange flavored 12oz can</td>
-      <td>$0.79</td>
-      <td>Orange</td>
-    </tr>
-    <tr>
-      <td>Lay's</td>
-      <td>Sour cream and Cheddar potato chips</td>
-      <td>$2.49</td>
-      <td>Orange</td>
-    </tr>
-    <tr>
-      <td>Ruffles</td>
-      <td>Wavy potato chips</td>
-      <td>$1.49</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Twinkies</td>
-      <td>Golden Sponge Cake with Creamy Filling</td>
-      <td>$0.49</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Zingers</td>
-      <td>Iced chocolate cake with cream filling</td>
-      <td>$1.00</td>
-      <td>Brown</td>
-    </tr>
-    <tr>
-      <td>Gatorade</td>
-      <td>24oz green apple flavor</td>
-      <td>$1.29</td>
-      <td>Green</td>
-    </tr>
+    <?php
+  endforeach;
+      ?>
   </table>
 </body>
 </html>

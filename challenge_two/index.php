@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="./lib/css/style.css">
 </head>
 <body>
-  <form method="POST" action="products.php">
+  <form method="post" action="products.php">
     <div>
       <label for="colors">Select a color:</label>
       <select name="colors" id="colors">

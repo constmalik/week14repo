@@ -1,5 +1,5 @@
 <?php
-$db = new PDO("mysql:host=localhost;dbname=mrobinson_challenge_one", "r2hstudent", "SbFaGzNgGIE8kfp");
+$db = new PDO("mysql:host=localhost;dbname=mrobinson_challenge_one", "r2hstudent", "SbFaGzNgGIE8kfP");
 try {
   $results = $db->query("SELECT * FROM states");
   $states = $results->fetchAll(PDO::FETCH_ASSOC);
